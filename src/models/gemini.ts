@@ -7,7 +7,7 @@ import path from 'node:path';
 const GEMINI_TOKEN = process.env.GEMINI_API_KEY || ''
 
 const genAI = new GoogleGenerativeAI(GEMINI_TOKEN)
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
+const model = genAI.getGenerativeModel({ model: 'gemini-2.0' })
 const starterPrompt = `
         You are an expert in prompt crafting.
         Use the text input to craft a detailed prompt for image generation.
