@@ -30,7 +30,7 @@ async function hfImage(prompt: string) {
 
     const blob = imgReq as Blob;
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-').replace('T', '_').split('.')[0];
-    await saveImage(blob, `hf-image-stable_${timestamp}.jpg`)
+    await storeImage(blob, `hf-image-stable_${timestamp}.jpg`)
     return { imgUrl: `/assets/images/hf-image-stable_${timestamp}.jpg`, altText: prompt }
 }
 /**
@@ -47,7 +47,7 @@ async function blobToBuffer(blob: Blob) : Promise<Buffer> {
  * @param blob 
  * @param filename 
  */
-async function saveImage(blob: Blob, filename: string) {
+async function storeImage(blob: Blob, filename: string) {
     const imageRoot = path.join(__dirname, '..', 'public', 'assets', 'images')
     const buffer = await blobToBuffer(blob)
     // get the imageRoot, save the buffer to the file system, and return the path once done
