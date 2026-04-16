@@ -23,16 +23,8 @@
                 <form
                     id="prompt-form"
                 >
-                    <fieldset class="group radiogroup">
-                        <legend>Model APIs</legend>
-                        <input type="radio" id="hugging-face" name="modelApi" value="hf" checked/>
-                        <label for="hugging-face">Hugging Face</label>
-                        <input type="radio" id="openai" name="modelApi" value="openai"/>
-                        <label for="open-ai">Open AI</label>
-                        <input type="radio" id="replicate" name="modelApi" value="replicate"/>
-                        <label for="replicate">Replicate</label>
-                    </fieldset> 
-                    <label for="prompt-1" class="prompt__label">Prompt</label> 
+                    <label for="prompt-1" class="prompt__label">Prompt</label>
+                    <small>Enter a simple prompt and the Gemini API will expand it into a detailed image description.</small>
                     <textarea class="prompt__input" name="prompt" id="prompt-1"></textarea>
                     <button class="prompt__submit-button" type="submit">
                         <span class="prompt__submit-button-text">Generate Prompt</span>
@@ -40,9 +32,18 @@
                     </button>
                     {# SSE div #}
                     <label for="prompt-result">
-                        Prompt Rephrase
+                        Prompt Rephrase <small>(powered by Gemini API)</small>
                     <textarea id="prompt-result" class="prompt__rephrase" name="promptRephrase"></textarea>
-                    </label> 
+                    </label>
+                    <fieldset class="group radiogroup">
+                        <legend>Image Model</legend>
+                        <input type="radio" id="openai" name="modelApi" value="openai" checked/>
+                        <label for="openai">Open AI</label>
+                        <input type="radio" id="hugging-face" name="modelApi" value="hf"/>
+                        <label for="hugging-face">Hugging Face</label>
+                        <input type="radio" id="replicate" name="modelApi" value="replicate"/>
+                        <label for="replicate">Replicate</label>
+                    </fieldset>
                     <button
                         class="image__generate-button"
                         hx-post="/make-image"
